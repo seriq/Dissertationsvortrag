@@ -1,0 +1,492 @@
+\documentclass[12pt,utf8,notheorems,compress,t]{beamer}
+\usepackage{etex}
+\usepackage[english]{babel}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{multicol}
+\usepackage{tabto}
+\usepackage{xstring}
+\usepackage{mathtools}
+\usepackage{soul,xcolor}
+%\setul{0.3ex}{}
+\usepackage[all]{xy}
+\xyoption{rotate}
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.callouts,shapes.arrows}
+\usepackage{mathrsfs}
+\hypersetup{colorlinks=true}
+
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+
+\title{Differenzielle Äquivariante $K$-Theorie}
+\author{Eric Schlarmann}
+\date{9. Juli 2020}
+
+\usetheme{Warsaw}
+\usecolortheme{seahorse}
+%\usefonttheme{default}?
+%\usepackage{kurier}?
+\usefonttheme{serif}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+%\usepackage{mathpazo}
+\useinnertheme{rectangles}
+
+\newcommand{\A}{\mathcal{A}}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\F}{\mathcal{F}}
+\renewcommand{\G}{\mathcal{G}}
+\newcommand{\GG}{\mathbb{G}}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\ppp}{\mathfrak{p}}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\defeqv}{\vcentcolon\equiv}
+\newcommand{\Sh}{\mathrm{Sh}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\Zar}{\mathrm{Zar}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\Set}{\mathrm{Set}}
+\newcommand{\Sch}{\mathrm{Sch}}
+\newcommand{\LRS}{\mathrm{LRS}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\DeclareMathOperator{\Spec}{Spec}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\RelSpec}{\operatorname{\text{\ul{$\mathrm{Spec}$}}}}
+\renewcommand{\_}{\mathpunct{.}}
+\newcommand{\?}{\,{:}\,}
+\newcommand{\speak}[1]{\ulcorner\text{\textnormal{#1}}\urcorner}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\affl}{\ensuremath{{\ull{\AA}^1_S}}}
+\newcommand{\Ll}{\vcentcolon\!\Longleftrightarrow}
+\newcommand{\dd}{\textup{d}} 
+\newcommand{\reg}{\textup{reg}} 
+\newcommand{\CC}{\mathbb{C}} 
+%conflict
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\Q}{\mathbb{Q}} 
+\newcommand{\Z}{\mathbb{Z}}
+%\newcommand{\K}{\mathbb{K}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ci}{\textup{i}}
+%\newcommand{\E}{\mathscr{E}}
+\newcommand{\h}{\mathscr{H}}
+%\newcommand{\G}{\mathscr{G}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ch}{\mathrm{ch}}
+\newcommand{\CS}{\mathrm{CS}}
+\newcommand{\grres}{\mathrm{Gr}_{\mathrm{res}}}
+\newcommand{\glres}{\mathrm{GL}_{\mathrm{res}}}
+\newcommand{\lglres}{\mathfrak{gl}_{\mathrm{res}}}
+\newcommand{\fred}{\mathrm{Fred}}
+\newcommand{\ff}{\mathscr{F}}
+\newcommand{\bb}{\mathscr{B}}
+\newcommand{\iu}{{i\mkern1mu}}
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\newcommand{\fmini}[2]{\framebox{\begin{minipage}{#1}#2\end{minipage}}}
+\makeatletter
+\def\underunbrace#1{\mathop{\vtop{\m@th\ialign{##\crcr
+      $\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern3\p@\nointerlineskip}
+      \crcr\noalign{\kern3\p@}}}}\limits}
+\def\overunbrace#1{\mathop{\vbox{\m@th\ialign{##\crcr\noalign{\kern3\p@}
+      \crcr\noalign{\kern3\p@\nointerlineskip}
+      $\hfil\displaystyle{#1}\hfil$\crcr}}}\limits}
+\makeatother
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+
+\newcommand{\pointthis}[2]{%
+  \tikz[remember picture,baseline]{\node[anchor=base,inner sep=0,outer sep=0]%
+    (#1) {#1};\node[overlay,rectangle callout,%
+    callout relative pointer={(-0.5cm,0.8cm)},fill=blue!20] at
+    ($(#1.north)+(1.1cm,-1.4cm)$) {#2};}%
+}%
+
+\newcommand{\hcancel}[5]{%
+  \tikz[baseline=(tocancel.base)]{
+    \node[inner sep=0pt,outer sep=0pt] (tocancel) {#1};
+    \draw[red, line width=0.4mm] ($(tocancel.south west)+(#2,#3)$) --
+    ($(tocancel.north east)+(#4,#5)$);
+  }%
+}
+
+\newcommand{\slogan}[1]{%
+  \begin{center}%
+    \setlength{\fboxrule}{2pt}%
+    \setlength{\fboxsep}{8pt}%
+    {\usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal text}\parbox{0.84\textwidth}{#1}}}%
+  \end{center}%
+}
+
+\newcommand{\sloganwithoutborder}[1]{%
+  \begin{center}%
+    \setlength{\fboxrule}{0pt}%
+    \setlength{\fboxsep}{-14pt}%
+    {\usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal
+    text}\parbox{0.9\textwidth}{\begin{center}#1\end{center}}}}%
+  \end{center}%
+}
+
+
+\setbeamertemplate{frametitle}[default][colsep=-2bp,rounded=false,shadow=false,center]
+
+\setbeamertemplate{headline}{}
+\setbeamertemplate{navigation symbols}{}
+
+\newcounter{framenumberpreappendix}
+\newcommand{\backupstart}{
+  \setcounter{framenumberpreappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberpreappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberpreappendix}} 
+}
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.25ex,right,rightskip=1mm,leftskip=1mm]{frametitle right}
+    {\quad} \inserttitle \hfill
+    \insertframenumber\,/\,\inserttotalframenumber {\quad}
+  \end{beamercolorbox}}
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{\textbf{#1}}}}
+
+\IfSubStr{\jobname}{\detokenize{nonotes}}{
+  \setbeameroption{hide notes}
+}{
+  \setbeameroption{show notes}
+}
+\setbeamertemplate{note page}[plain]
+
+\makeatletter
+\let\ST\st
+\renewcommand\st{%
+    \let\set@color\beamerorig@set@color
+    \let\reset@color\beamerorig@reset@color
+    \ST}
+\makeatother
+
+\begin{document}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[c]
+  \centering
+  %\includegraphics[scale=0.3]{images/external-internal-small}
+  \medskip
+
+  \hil{Ein Kozykel-Modell für \\den äquivarianten Chern-Charakter und \\
+  differenzielle äquivariante $K$-Theorie.}
+%  \hil{A cocycle model for the equivariant \\Chern character and differential\\
+%    equivariant K-theory}
+
+
+%  \medskip
+  \bigskip
+
+  \scriptsize
+  Eric Schlarmann\\[2em]
+  \medskip
+%  Regional Geometry and Topology Meeting\\
+%  University of Regensburg and University of Augsburg \\
+%  \ \\
+  Dissertationsprüfung am \\[0.5em]
+  9. Juli 2020
+  \par
+\end{frame}
+
+\backupstart
+\frame[t]{\frametitle{Outline}\scriptsize
+\begin{itemize}
+\item[]
+\tableofcontents
+\end{itemize}}
+\backupend 
+\setstcolor{red}
+
+\section{Differenzielle Kohomologietheorien}
+
+\begin{frame}\frametitle{Was ist Differenzielle $K$-Theorie?}
+    Als Geometer studieren wir glatte Mannigfaltigkeiten. Häufig nutzen wir
+    dabei Werkzeuge der Topologie.
+    \begin{minipage}{0.6\linewidth}
+        \vspace{1em}
+        \begin{itemize}
+            \item (Ko-)Homologietheorien
+            \item Homotopiegruppen
+            \item \dots
+        \end{itemize}
+    \end{minipage}
+    \begin{minipage}{0.3\linewidth}
+        \vspace{1.5em}
+        \includegraphics[scale=0.2]{512px-Torus}	
+    \end{minipage}
+    \vspace{1em}
+    \begin{alertblock}<2->{Aber:}
+        Glatte Struktur wird von diesen Werkzeugen ignoriert!
+    \end{alertblock}
+\end{frame}
+\begin{frame}\vspace{2em}
+    \begin{block}{\onslide<2->{\textcolor{red}{Differenzielle}}
+        Kohomologietheorien}
+        Sind Familien von Funktoren Mfd $\rightarrow$ Grp mit Eigenschaften
+       \begin{itemize}
+           \item Mayer-Vietoris Sequenz
+           \item $\coprod$ wird zu $\prod$
+           \item
+               \only<1>{Homotopieinvarianz}\only<2->{\st{Homotopieinvarianz}}
+       \end{itemize}
+    \end{block}\vspace{1em}
+    \begin{exampleblock}{Beispiele}
+    \begin{itemize}
+            \item
+                \only<1>{\hil{$H^*$:}}\only<2->{\hil{$\hat H^*$:}}
+                \only<2->{Differenzielle} De Rham Kohomologie
+            \item \only<1>{\hil{$K^*$:}}\only<2->{\hil{$\hat K^*$:}}
+                \only<2->{Differenzielle} $K$-Theorie
+      	    \item \only<1>{\hil{$MU^*$:}} \only<2->{\hil{$
+		    \widehat {MU}^*$:}}
+                \only<2->{Differenzieller} Komplexer Bordismus
+	    \item \dots
+    \end{itemize}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}\frametitle{Klassische Definition}
+Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
+\begin{equation}\begin{tikzcd}[ampersand replacement=\&]
+        \textcolor{red}{\hat K^*(M)} \arrow[d,
+        "R", red]\arrow[r, "I", red] \& K^*(M)\arrow[d, "\mathrm{ch}"] \\ 
+        \Omega^*_{\dd=0}(M) \arrow[r, "\mathrm{Rham}"]\& H^*(M),
+\end{tikzcd}\nonumber
+\end{equation} \vspace{1em} sowie eine exakte Sequenz\vspace{-2em}
+\begin{equation}\begin{tikzcd}[ampersand replacement=\&]
+        K^{*-1}(M)\arrow[r, "\mathrm{ch}"]\&[-10pt]\Omega^{*-1}(M) /
+        \mathrm{im}(\dd)\ar[dr, "\dd"]\arrow[r, "a", red] \&[-10pt]
+        \textcolor{red}{\hat K^*(M)} \arrow[r, "I", red]\ar[d, "R", red]
+        \&[-10pt] K^*(M) \arrow[r] \&[-10pt]  0 \\ \&\& \Omega^*_{\dd=0}(M)\&\&
+\end{tikzcd}\nonumber
+\end{equation}
+\end{frame}
+\begin{frame}
+    Sei $G$ eine endliche Gruppe und $M$ eine $G$-Mannigfaltigkeit. Dann gibt es
+    nach Atiyah eine äquivariante Version von $K$-Theorie.
+    
+    \textcolor{blue}{Motto:} Ersetze Vektorbündel durch äquivariante
+    $G$-Vektorbündel!
+    \begin{block}<2->{Frage}
+        Kann man auch eine äquivariante Version von
+        \emph{differenzieller} K-Theorie definieren?
+    \end{block}
+\end{frame}
+\begin{frame}\frametitle{Äquivariante Version, 1. Versuch}
+\begin{equation}\begin{tikzcd}[ampersand replacement=\&]
+        \textcolor{red}{\hat K_G^*(M)} \arrow[d,
+        "R", red]\arrow[r, "I", red] \& K_G^*(M)\arrow[d, "\mathrm{ch}"] \\ 
+        \Omega^*_{G, \dd=0}(M) \arrow[r, "\mathrm{Rham}"]\& H_G^*(M),
+\end{tikzcd}\nonumber
+\end{equation}
+\begin{alertblock}<2->{Aber:}
+    Borel äquivariante Kohomologie ist kein gutes Ziel für den Chern Charakter!
+\end{alertblock}
+\begin{block}<2->{Erinnerung:}
+    Verkleben von $K$-Theorie Klassen mit Differenzialformen über den Chern
+    Charakter. 
+\end{block}
+\end{frame}
+\begin{frame}{Der Delokalisierte Chern Charakter}
+    Nach Baum und Connes gibt es eine Möglichkeit, die (rationale)
+    Isomorphieeigenschaft wieder herzustellen.
+    \begin{block}{Delokalisierte Kohomologie}
+        \vspace{-1em}
+        \begin{align*}
+            H^0_\mathrm{delok}(M) &= \left( \bigoplus_{g\in G} \prod_{k\in\N}
+            H^{2k}(M^g;\CC)\right)^G\quad\mathrm{und}\\
+            H^1_\mathrm{delok}(M) &= \left( \bigoplus_{g\in G} \prod_{k\in\N}
+            H^{2k+1}(M^g;\CC)\right)^G.
+        \end{align*}
+        und es gibt einen Chern Charakter Isomorphismus
+        \begin{align*}
+            K_G^*(M)\otimes \CC
+            \stackrel{\mathrm{ch}_{\mathrm{delok}}}{\longrightarrow}
+            H_\mathrm{delok}^*(M)
+        \end{align*}
+    \end{block}
+\end{frame}
+\begin{frame}\frametitle{Äquivariante Version, 2. Versuch}
+\begin{equation}\begin{tikzcd}[ampersand replacement=\&]
+        \textcolor{red}{\hat K_G^*(M)} \arrow[d,
+        "R", red]\arrow[r, "I", red] \& K_G^*(M)\arrow[d,
+        "\mathrm{ch}_{\mathrm{delok}}"] \\ 
+        \Omega^*_{\mathrm{delok}, \dd=0}(M) \arrow[r, "\mathrm{Rham}"]\&
+        H_{\mathrm{delok}}^*(M),
+\end{tikzcd}\nonumber
+\end{equation}
++ exakte Sequenz\dots
+
+\only<2->{Eine solche Theorie $\hat K_G^*$ würde wie im nicht äquivarianten
+Fall den $K$-Theorie Funktor differenzialgeometrisch verfeinern!
+
+Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
+
+\end{frame}
+
+\begin{frame}
+    Eine wichtige Eigenschaft von äquivarianten
+    Ko\-ho\-mo\-lo\-gie\-the\-o\-ri\-en ist ihre
+    \emph{Darstellbarkeit} durch ein Spektrum. Im Fall von $K$-Theorie gibt es
+    eine sehr konkrete Beschreibung von Atiyah, die Räume von Fredholmoperatoren
+    nutzt.
+    \begin{exampleblock}<2->{}
+        \vspace{-1em}
+        \begin{align*}
+            K_G^0(M) &\cong [M,  \mathscr{F}_0]_G \\
+            K_G^1(M) &\cong [M, \mathscr{F}_1]_G,
+        \end{align*}
+        wobei $\mathscr{F}_i\subset \mathrm{Fred}(\mathcal{H}\otimes L^2(G))$
+        geeignete Unterräume in der Norm Topologie mit Konjugationswirkung.
+    \end{exampleblock}
+    \onslide<3->{\textcolor{blue}{Idee:} Die universellen Räume $\mathscr{F}_i$
+        enthalten jeweils eine \emph{universelle} $K$-Theorie Klasse, welche wir
+        entlang Abbildungen zurückziehen.}
+\end{frame}
+\section{Geometrische klassifizierende Räume}
+\begin{frame}
+    Eine differenzielle $K$-Theorie Klasse ist grob gesagt eine $K$-Theorie
+    Klasse, zusammen mit einem Differenzialform-Repräsentanten ihres Chern
+    Charakters. 
+
+    Wenn wir einen universellen Repräsentanten für den Chern
+    Charakter finden, können wir also möglicherweise differenzielle $K$-Theorie
+    klassifizieren!
+    
+    Die erste Definition von differenzieller Kohomologie nach Hopkins
+    und Singer nutzt solche universellen
+    Kozykel, um Existenz differenzieller Kohomologietheorien allgemein
+    zu zeigen! 
+
+    \textcolor{blue}{Aber:} Diese Kozykel sind abstrakt gewählt und haben keine
+    geometrische Bedeutung!
+\end{frame}
+\begin{frame}
+    Arbeiten von Segal, Quillen und Freed beschäftigen sich mit unendlich
+    dimensionalen Mannigfaltigkeiten, um den universellen Chern Charakter zu
+    beschreiben.
+    \begin{block}<2->{Definition}
+        Die eingeschränkte Grassmann Mannigfaltigkeit
+        $\mathrm{Gr}_{\mathrm{res}}$ ist der Raum aller Unterräume $W\subset
+        \mathcal{H}_+ \oplus \mathcal{H}_-$, sodass 
+        \begin{itemize}
+            \item $\pi_+\colon W\to \mathcal{H}_+$ ein Fredholm Operator ist.
+            \item $\pi_-\colon W \to \mathcal{H}_-$ ein Hilbert--Schmidt
+                Operator ist.
+        \end{itemize}
+    \end{block}
+    \begin{block}<3->{Definition}
+        Die eingeschränkte unitäre Gruppe $\mathrm U^1$ ist der Raum aller
+        beschränkten
+        unitären Operatoren $P$ auf $\mathcal{H}_+$, sodass $P-\mathrm{id}$ ein
+        Spurklasseoperator ist.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    Auf diesen Räumen gibt es spezielle Lie-Algebra-wertige Differenzialformen.
+    \begin{itemize}
+        \item Die Krümmungsform auf dem universellen Bündel $R\in
+            \Omega^2(\mathrm{Gr}_{\mathrm{res}}; L^2)$.
+        \item Die Maurer--Cartan Form $\omega\in \Omega^1(\mathrm U^1;
+            L^1)$.
+    \end{itemize}
+    Diese Formen sind kompatibel mit ihren endlich dimensionalen Versionen!
+    \begin{exampleblock}{}
+        \vspace{-1em}
+        \begin{align*}
+            \mathrm{Gr}_{k}(\CC^{2N}) &\hookrightarrow \grres \\
+            \mathrm{U}(N) &\hookrightarrow \mathrm U^1
+        \end{align*}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}
+    \begin{block}{Theorem (Sch.)}
+        Die folgenden Differenzialformen sind de Rham Repräsentanten des
+        universellen delokalisierten Chern Charakters:
+        \begin{align*}
+            \ch_{\mathrm{0}} &= \bigoplus_{g\in G} \tr \left( g \exp\left(
+            \frac{i}{2\pi}R_g \right) \right). \\
+            \ch_{\mathrm{1}} &= \bigoplus_{g\in G} \sum_{k\geq 1}
+            \left(\frac{i}{2\pi}\right)^{k}
+            \frac{(-1)^{k-1}(k-1)!}{(2k-1)!}\tr \left(g\,
+            (\omega_g)^{2k-1}\right),
+        \end{align*}
+        wobei $R_g$ und $\omega_g$ die Einschränkungen der Differenzialformen
+        auf die Fixpunkt Untermannigfaltigkeiten $(\grres)^g$ und $(\mathrm
+        U^1)^g$ sind.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Zusätzliche Struktur}
+    Die Mannigfaltigkeiten $\grres$ und $\mathrm U^1$ besitzen beide eine
+    geometrische Blocksummenoperation!
+    \begin{block}<2->{Blocksumme}
+        \vspace{-1em}
+        \begin{align*}
+            \boxplus\colon \grres \times \grres &\to \grres \\\boxplus\colon
+            \mathrm U^1 \times \mathrm
+            U^1 &\to \mathrm U^1,
+        \end{align*}
+        korrespondieren zur direkten Summe von Untervektorräumen bzw. Blocksumme
+        von Matrizen.
+    \end{block}
+    \only<3->{Diese Operationen
+    \begin{itemize}
+        \item sind kompatibel mit dem Chern charakter.
+        \item induzieren die Addition in $K$-Theorie.
+\end{itemize}}
+\end{frame}
+
+\begin{frame}{Äquivariante Differenzielle $K$-Theorie}
+    \begin{block}{Definition/Theorem (Sch.)}
+        \begin{align*}
+            \hat K_G^0(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M, \grres)\times
+            \Omega^1_G(M) /\sim\\
+            \hat K_G^{1}(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M, \mathrm
+            U^1)\times \Omega^0_G(M) /\sim,
+        \end{align*}
+        mit der Äquivalenzrelation $(f_1, \omega_1) \sim (f_0,
+        \omega_0)$, 
+        falls es eine glatte $G$-Homotopie $f_t$ von $f_0$ zu $f_1$ gibt, sodass
+        \begin{align*}
+            \CS_G(f_t) = \omega_1 - \omega_0 + \mathrm{exakt}.
+        \end{align*}
+        Außerdem identifizieren wir Stabilisierungen mit der konstanten
+        Abbildung auf den Basispunkt:
+        \begin{align*}
+            (f,\omega)\sim (f\boxplus 1, \omega).
+        \end{align*}
+    \end{block}
+\end{frame}
+
+
+\end{document}
