@@ -294,7 +294,7 @@ Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
     
     \textcolor{blue}{Motto:} Ersetze Vektorbündel durch äquivariante
     $G$-Vektorbündel!
-    \begin{block}<2->{Frage}
+    \begin{block}{Frage}
         Kann man auch eine äquivariante Version von
         \emph{differenzieller} K-Theorie definieren?
     \end{block}
@@ -340,7 +340,7 @@ Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
         "R", red]\arrow[r, "I", red] \& K_G^*(M)\arrow[d,
         "\mathrm{ch}_{\mathrm{delok}}"] \\ 
         \Omega^*_{\mathrm{delok}, \dd=0}(M) \arrow[r, "\mathrm{Rham}"]\&
-        H_{\mathrm{delok}}^*(M),
+        H_{\mathrm{delok}}^*(M)
 \end{tikzcd}\nonumber
 \end{equation}
 
@@ -348,28 +348,27 @@ Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
 Fall den $K_G$-Theorie Funktor differenzialgeometrisch verfeinern!
 
 Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
-
 \end{frame}
 
 \begin{frame}{$K$-Theorie über ein Spektrum}
-    \begin{exampleblock}{Atiyah}<2->{}
+    \begin{exampleblock}{Atiyah}{}
         \vspace{-1em}
         \begin{align*}
-            K_G^0(M) &\cong [M,  \mathscr{F}_0]_G \\
+            K_G^0(M) &\cong [M, \mathscr{F}_0]_G \\
             K_G^1(M) &\cong [M, \mathscr{F}_1]_G,
         \end{align*}
         wobei $\mathscr{F}_i\subset \mathrm{Fred}(\mathcal{H}\otimes L^2(G))$
         geeignete Unterräume in der Norm Topologie mit Konjugationswirkung.
     \end{exampleblock}
-    \onslide<3->{\textcolor{blue}{Idee:} Die universellen Räume $\mathscr{F}_i$
+    \onslide<2->{\textcolor{blue}{Idee:} Die universellen Räume $\mathscr{F}_i$
         enthalten jeweils eine \emph{universelle} $K$-Theorie Klasse, welche wir
-        entlang Abbildungen zurückziehen.}
+    entlang Abbildungen zurückziehen. (``Indexbündel'')}
 \end{frame}
 \begin{frame}
-    Eine differenzielle $K$-Theorie Klasse ist 
+    Eine differenzielle $K$-Theorie Klasse besteht aus
     \begin{itemize}
-        \item<2-> Eine $K$-Theorie Klasse $x$
-        \item<3-> Ein Differenzialform-Repräsentant ihres Chern Charakters
+        \item<2-> Einer $K$-Theorie Klasse $x$
+        \item<3-> Einem Differenzialform-Repräsentant ihres Chern Charakters
             $\Ch(x)$.
     \end{itemize}
     \onslide<4->{Wenn wir einen universellen Repräsentanten für den Chern
@@ -379,8 +378,8 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     Auf Atiyahs Räumen von Fredholm Operatoren sind bis heute allerdings keine
     konkreten geometrischen Repräsentanten bekannt.
 
-    $\textcolor{blue}{\Rightarrow}$} Wir brauchen bessere Modelle von den
-    klassifizierenden Räumen!
+    $\textcolor{blue}{\Rightarrow}$ Wir brauchen bessere Modelle von den
+    klassifizierenden Räumen!}
     
 \end{frame}
 \begin{frame}
@@ -523,5 +522,19 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
         Zykelabbildung zulässt. 
     \end{block}
 \end{frame}
-
+\begin{frame}{Nicht kompakter Fall}
+    Wenn das äquivariante Venice-Lemma wahr ist, so gilt das kompakte Resultat
+    auch im allgemeinen Fall.
+    \begin{block}{Vermutung (Äquivariantes Venice-Lemma)}
+        Sei
+        \begin{align*}
+            \omega\in \Omega^0_{\mathrm{delok}}(M) \qquad \mathrm{oder} \qquad
+            \omega\in \Omega^1_{\mathrm{delok}}(M)
+        \end{align*}
+        eine delokalisierte Differenzialform. Dann ist $\omega$ bis auf exakte
+        Formen die Chern--Simons Form einer $G$-Homotopie $f\colon I\times M \to
+        \mathrm{Gr}_{\mathrm{res}}$ oder $f\colon I\times M \to
+        \mathrm U^1$.
+    \end{block}
+\end{frame}
 \end{document}
