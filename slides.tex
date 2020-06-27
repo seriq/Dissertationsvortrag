@@ -86,6 +86,7 @@
 %\newcommand{\G}{\mathscr{G}}
 \newcommand{\tr}{\mathrm{tr}}
 \newcommand{\ch}{\mathrm{ch}}
+\newcommand{\Ch}{\mathrm{Ch}}
 \newcommand{\CS}{\mathrm{CS}}
 \newcommand{\grres}{\mathrm{Gr}_{\mathrm{res}}}
 \newcommand{\glres}{\mathrm{GL}_{\mathrm{res}}}
@@ -217,16 +218,14 @@
   \par
 \end{frame}
 
-\backupstart
-\frame[t]{\frametitle{Outline}\scriptsize
-\begin{itemize}
-\item[]
-\tableofcontents
-\end{itemize}}
-\backupend 
+%\backupstart
+%\frame[t]{\frametitle{Outline}\scriptsize
+%\begin{itemize}
+%\item[]
+%\tableofcontents
+%\end{itemize}}
+%\backupend 
 \setstcolor{red}
-
-\section{Differenzielle Kohomologietheorien}
 
 \begin{frame}\frametitle{Was ist Differenzielle $K$-Theorie?}
     Als Geometer studieren wir glatte Mannigfaltigkeiten. Häufig nutzen wir
@@ -300,11 +299,12 @@ Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
         \emph{differenzieller} K-Theorie definieren?
     \end{block}
 \end{frame}
+
 \begin{frame}\frametitle{Äquivariante Version, 1. Versuch}
 \begin{equation}\begin{tikzcd}[ampersand replacement=\&]
         \textcolor{red}{\hat K_G^*(M)} \arrow[d,
         "R", red]\arrow[r, "I", red] \& K_G^*(M)\arrow[d, "\mathrm{ch}"] \\ 
-        \Omega^*_{G, \dd=0}(M) \arrow[r, "\mathrm{Rham}"]\& H_G^*(M),
+        (\Omega^*_{\dd=0}(M))^G \arrow[r, "\mathrm{Rham}"]\& H_G^*(M),
 \end{tikzcd}\nonumber
 \end{equation}
 \begin{alertblock}<2->{Aber:}
@@ -345,19 +345,14 @@ Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
 \end{equation}
 
 \only<2->{Eine solche Theorie $\hat K_G^*$ würde wie im nicht äquivarianten
-Fall den $K$-Theorie Funktor differenzialgeometrisch verfeinern!
+Fall den $K_G$-Theorie Funktor differenzialgeometrisch verfeinern!
 
 Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
 
 \end{frame}
 
-\begin{frame}
-    Eine wichtige Eigenschaft von äquivarianten
-    Ko\-ho\-mo\-lo\-gie\-the\-o\-ri\-en ist ihre
-    \emph{Darstellbarkeit} durch ein Spektrum. Im Fall von $K$-Theorie gibt es
-    eine sehr konkrete Beschreibung von Atiyah, die Räume von Fredholmoperatoren
-    nutzt.
-    \begin{exampleblock}<2->{}
+\begin{frame}{$K$-Theorie über ein Spektrum}
+    \begin{exampleblock}{Atiyah}<2->{}
         \vspace{-1em}
         \begin{align*}
             K_G^0(M) &\cong [M,  \mathscr{F}_0]_G \\
@@ -370,23 +365,23 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
         enthalten jeweils eine \emph{universelle} $K$-Theorie Klasse, welche wir
         entlang Abbildungen zurückziehen.}
 \end{frame}
-\section{Geometrische klassifizierende Räume}
 \begin{frame}
-    Eine differenzielle $K$-Theorie Klasse ist grob gesagt eine $K$-Theorie
-    Klasse, zusammen mit einem Differenzialform-Repräsentanten ihres Chern
-    Charakters. 
-
-    Wenn wir einen universellen Repräsentanten für den Chern
+    Eine differenzielle $K$-Theorie Klasse ist 
+    \begin{itemize}
+        \item<2-> Eine $K$-Theorie Klasse $x$
+        \item<3-> Ein Differenzialform-Repräsentant ihres Chern Charakters
+            $\Ch(x)$.
+    \end{itemize}
+    \onslide<4->{Wenn wir einen universellen Repräsentanten für den Chern
     Charakter finden, können wir also möglicherweise differenzielle $K$-Theorie
     klassifizieren!
     
-    Die erste Definition von differenzieller Kohomologie nach Hopkins
-    und Singer nutzt solche universellen
-    Kozykel, um Existenz differenzieller Kohomologietheorien allgemein
-    zu zeigen! 
+    Auf Atiyahs Räumen von Fredholm Operatoren sind bis heute allerdings keine
+    konkreten geometrischen Repräsentanten bekannt.
 
-    \textcolor{blue}{Aber:} Diese Kozykel sind abstrakt gewählt und haben keine
-    geometrische Bedeutung!
+    $\textcolor{blue}{\Rightarrow}$} Wir brauchen bessere Modelle von den
+    klassifizierenden Räumen!
+    
 \end{frame}
 \begin{frame}
     Arbeiten von Segal, Quillen und Freed beschäftigen sich mit unendlich
@@ -411,7 +406,16 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
 \end{frame}
 
 \begin{frame}
-    Auf diesen Räumen gibt es spezielle Lie-Algebra-wertige Differenzialformen.
+    Die Homotopietypen sind 
+    \begin{exampleblock}{}
+        \vspace{-1em}
+        \begin{align*}
+            \mathrm{Gr}_{\mathrm{res}} &\sim \mathscr{F}_0 \\
+            \mathrm U^1 &\sim \mathscr{F}_1.
+        \end{align*}
+    \end{exampleblock}
+    und es gibt es spezielle Lie-Algebra-wertige
+    Differenzialformen:
     \begin{itemize}
         \item Die Krümmungsform auf dem universellen Bündel $R\in
             \Omega^2(\mathrm{Gr}_{\mathrm{res}}; L^2)$.
@@ -428,7 +432,7 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \end{exampleblock}
 \end{frame}
 \begin{frame}{Der Äquivariante Chern Charakter}
-    \begin{block}{Theorem (Sch.)}
+    \begin{block}{Satz (Sch.)}
         Die folgenden Differenzialformen sind de Rham Repräsentanten des
         universellen delokalisierten Chern Charakters:
         \begin{align*}
@@ -466,28 +470,58 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
 \end{frame}
 
 \begin{frame}{Äquivariante Differenzielle $K$-Theorie}
-    \begin{block}{Definition/Theorem (Sch.)}
+    \begin{block}{Definition/Satz: Kompakter Fall (Sch.)}
+        Die Gruppen
         \begin{align*}
-            \hat K_G^0(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M, \grres)\times
-            \Omega^1_G(M) /\sim\\
+            \hat K_G^0(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M, \grres)/\sim\\
             \hat K_G^{1}(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M, \mathrm
-            U^1)\times \Omega^0_G(M) /\sim,
+            U^1)/\sim,
         \end{align*}
-        mit der Äquivalenzrelation $(f_1, \omega_1) \sim (f_0,
-        \omega_0)$, 
+        definieren eine differenzielle Erweiterung. Hierbei ist $f_1 \sim f_0$, 
         falls es eine glatte $G$-Homotopie $f_t$ von $f_0$ zu $f_1$ gibt, sodass
         \begin{align*}
-            \CS_G(f_t) = \omega_1 - \omega_0 + \mathrm{exakt}.
+            \CS_G(f_t) = \bigoplus_g \int \Ch(f_t) 
         \end{align*}
-        Außerdem identifizieren wir Stabilisierungen mit der konstanten
-        Abbildung auf den Basispunkt:
-        \begin{align*}
-            (f,\omega)\sim (f\boxplus 1, \omega).
-        \end{align*}
+        eine \emph{exakte} delokalisierte Differenzialform ist.
     \end{block}
 \end{frame}
-\begin{frame}{Cycle maps}
-    
+\begin{frame}{Zykelabbildungen (gerader Fall)}
+    Ein Zykel für $K_G$-Theorie auf $M$ ist ein $G$-Vektorbündel $E\to M$. Es
+    gibt eine natürliche Transformation
+    \begin{align*}
+        \mathrm{cycl}\colon \mathrm{Vect}_G\to K_G^0,
+    \end{align*}
+    die wir die \emph{topologische Zykelabbildung} nennen.
+
+    \onslide<2->{Ein \emph{geometrischer Zykel} ist ein Paar
+    $(E,\nabla)$ bestehend aus 
+    \begin{itemize}
+        \item Einem $G$-Vektorbündel $E\to M$.
+        \item Einem invarianten Zusammenhang $\nabla$ auf $E$.
+\end{itemize}}
+\end{frame}
+\begin{frame}{Zykelabbildungen (gerader Fall)}
+    Ein geometrischer Lift der topologischen Zykelabbildung ist eine natürliche
+    Transformation
+    \begin{align*}
+        \widehat{\mathrm{cycl}}\colon \mathrm{Vect}^{\nabla}_G\to \hat K_G^0,
+    \end{align*}
+    sodass folgende Eigenschaften erfüllt sind:
+    \begin{itemize}
+        \item<2-> Die Verknüpfung $R\circ \widehat{\mathrm{cycl}} =
+            \mathrm{Ch}_G$.
+        \item<2-> Die Verknüpfung $I\circ \widehat{\mathrm{cycl}} =
+            \mathrm{cycl}$.
+    \end{itemize}
+    \onslide<2->{Im ungeraden Fall gibt es (über den Suspensionsisomorphismus)
+    eine ungerade topologische Zykelabbildung.}
+\end{frame}
+\begin{frame}
+    \begin{block}{Satz (Sch.)}
+        Die oben definierte differenzielle Erweiterung ist die eindeutige
+        Erweiterung, die sowohl eine gerade als auch eine ungerade
+        Zykelabbildung zulässt. 
+    \end{block}
 \end{frame}
 
 \end{document}
