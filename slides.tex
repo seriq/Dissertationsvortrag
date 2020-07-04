@@ -230,7 +230,7 @@
 \begin{frame}\frametitle{Was ist Differenzielle $K$-Theorie?}
     Als Geometer studieren wir glatte Mannigfaltigkeiten. Häufig nutzen wir
     dabei Werkzeuge der Topologie.
-    \begin{minipage}{0.6\linewidth}
+    \begin{minipage}{0.5\linewidth}
         \vspace{1em}
         \begin{itemize}
             \item (Ko-)Homologietheorien
@@ -238,16 +238,14 @@
             \item \dots
         \end{itemize}
     \end{minipage}
-    \begin{minipage}{0.3\linewidth}
+    \begin{minipage}{0.4\linewidth}
         \vspace{1.5em}
-        \includegraphics[scale=0.2]{512px-Torus}	
+        \includegraphics[scale=0.3]{512px-Torus}	
     \end{minipage}
-    \vspace{1em}
-    \begin{alertblock}<2->{Aber:}
-        Glatte Struktur wird von diesen Werkzeugen ignoriert!
-    \end{alertblock}
+    \vspace{1em} \vspace{1em}
+    \hil{Aber:} Glatte Struktur wird von diesen Werkzeugen ignoriert!
 \end{frame}
-\begin{frame}\vspace{2em}
+\begin{frame}\frametitle{Was ist Differenzielle $K$-Theorie?}
     \begin{block}{\onslide<2->{\textcolor{red}{Differenzielle}}
         Kohomologietheorien}
         Sind Familien von Funktoren Mfd $\rightarrow$ Grp mit Eigenschaften
@@ -255,7 +253,8 @@
            \item Mayer-Vietoris Sequenz
            \item $\coprod$ wird zu $\prod$
            \item
-               \only<1>{Homotopieinvarianz}\only<2->{\st{Homotopieinvarianz}}
+           \only<1>{Homotopieinvarianz}
+           \only<2->{\hcancel{Homotopieinvarianz}{0pt}{3pt}{0pt}{-2pt}}
        \end{itemize}
     \end{block}\vspace{1em}
     \begin{exampleblock}{Beispiele}
@@ -288,12 +287,14 @@ Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
 \end{tikzcd}\nonumber
 \end{equation}
 \end{frame}
-\begin{frame}
+\begin{frame}{Äquivariantes Setting}
+
     Sei $G$ eine endliche Gruppe und $M$ eine $G$-Mannigfaltigkeit. Dann gibt es
-    nach Atiyah eine äquivariante Version von $K$-Theorie.
+    nach Atiyah und Segal eine äquivariante Version von $K$-Theorie.
     
     \textcolor{blue}{Motto:} Ersetze Vektorbündel durch äquivariante
     $G$-Vektorbündel!
+    \vspace{1em}
     \begin{block}{Frage}
         Kann man auch eine äquivariante Version von
         \emph{differenzieller} K-Theorie definieren?
@@ -307,9 +308,10 @@ Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
         (\Omega^*_{\dd=0}(M))^G \arrow[r, "\mathrm{Rham}"]\& H_G^*(M),
 \end{tikzcd}\nonumber
 \end{equation}
-\begin{alertblock}<2->{Aber:}
-    Borel äquivariante Kohomologie ist kein gutes Ziel für den Chern Charakter!
-\end{alertblock}
+\vspace{0.5em} 
+
+\onslide<2->{\hil{Aber:} Borel äquivariante Kohomologie ist kein gutes Ziel für
+den Chern Charakter!}
 \begin{block}<2->{Erinnerung:}
     Verkleben von $K$-Theorie Klassen mit Differenzialformen über den Chern
     Charakter. 
@@ -351,7 +353,7 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
 \end{frame}
 
 \begin{frame}{$K$-Theorie über ein Spektrum}
-    \begin{exampleblock}{Atiyah}{}
+    \begin{exampleblock}{Theorem (Atiyah)}{}
         \vspace{-1em}
         \begin{align*}
             K_G^0(M) &\cong [M, \mathscr{F}_0]_G \\
@@ -367,11 +369,11 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
 \begin{frame}
     Eine differenzielle $K$-Theorie Klasse besteht aus
     \begin{itemize}
-        \item<2-> Einer $K$-Theorie Klasse $x$
-        \item<3-> Einem Differenzialform-Repräsentant ihres Chern Charakters
+        \item einer $K$-Theorie Klasse $x$
+        \item einem Differenzialform-Repräsentanten ihres Chern Charakters
             $\Ch(x)$.
     \end{itemize}
-    \onslide<4->{Wenn wir einen universellen Repräsentanten für den Chern
+    \onslide<2->{Wenn wir einen universellen Repräsentanten für den Chern
     Charakter finden, können wir also möglicherweise differenzielle $K$-Theorie
     klassifizieren!
     
@@ -399,25 +401,33 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \begin{block}<3->{Definition}
         Die eingeschränkte unitäre Gruppe $\mathrm U^1$ ist der Raum aller
         beschränkten
-        unitären Operatoren $P$ auf $\mathcal{H}_+$, sodass $P-\mathrm{id}$ ein
-        Spurklasseoperator ist.
+        unitären Operatoren $P$ auf $\mathcal{H}_+$, sodass $P-\mathrm{id}\in
+        L^1$ ein Spurklasseoperator ist.
     \end{block}
 \end{frame}
 
-\begin{frame}
-    Die Homotopietypen sind 
-    \begin{exampleblock}{}
-        \vspace{-1em}
+\begin{frame}{Klassifizierende Räume für $K$-Theorie}
+    \begin{block}{Theorem}
+        Für jede glatte $G$-Mannigfaltigkeit ist 
         \begin{align*}
-            \mathrm{Gr}_{\mathrm{res}} &\sim \mathscr{F}_0 \\
-            \mathrm U^1 &\sim \mathscr{F}_1.
+            ([M, \mathrm{Gr}_{\mathrm{res}}]_G,\boxplus) &\cong K_G^0(M) \\
+            ([M, \mathrm{U}^1]_G,\boxplus) &\cong K_G^1(M) \\
         \end{align*}
-    \end{exampleblock}
-    und es gibt es spezielle Lie-Algebra-wertige
-    Differenzialformen:
+    \end{block}
+    wobei die Blocksummenoperation
+    \begin{align*}
+        \boxplus\colon \grres \times \grres &\to \grres \\\boxplus\colon
+        \mathrm U^1 \times \mathrm
+        U^1 &\to \mathrm U^1,
+    \end{align*}
+    der Summe von Untervektorräumen bzw. Blocksumme von Matrizen entspricht.
+\end{frame}
+\begin{frame}
+    Auf $\grres$ und $\mathrm U^1$ existieren (per Konstruktion!) spezielle
+    Lie-Algebra-wertige Differenzialformen:
     \begin{itemize}
         \item Die Krümmungsform auf dem universellen Bündel $R\in
-            \Omega^2(\mathrm{Gr}_{\mathrm{res}}; L^2)$.
+            \Omega^2(\mathrm{Gr}_{\mathrm{res}}; L^1)$.
         \item Die Maurer--Cartan Form $\omega\in \Omega^1(\mathrm U^1;
             L^1)$.
     \end{itemize}
@@ -431,13 +441,13 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \end{exampleblock}
 \end{frame}
 \begin{frame}{Der Äquivariante Chern Charakter}
-    \begin{block}{Satz (Sch.)}
+    \begin{block}{Theorem}
         Die folgenden Differenzialformen sind de Rham Repräsentanten des
         universellen delokalisierten Chern Charakters:
         \begin{align*}
-            \ch_{\mathrm{0}} &= \bigoplus_{g\in G} \tr \left( g \exp\left(
+            \ch_{\mathrm{even}} &= \bigoplus_{g\in G} \tr \left( g \exp\left(
             \frac{i}{2\pi}R_g \right) \right). \\
-            \ch_{\mathrm{1}} &= \bigoplus_{g\in G} \sum_{k\geq 1}
+            \ch_{\mathrm{odd}} &= \bigoplus_{g\in G} \sum_{k\geq 1}
             \left(\frac{i}{2\pi}\right)^{k}
             \frac{(-1)^{k-1}(k-1)!}{(2k-1)!}\tr \left(g\,
             (\omega_g)^{2k-1}\right),
@@ -448,44 +458,48 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \end{block}
 \end{frame}
 
-\begin{frame}{Zusätzliche Struktur}
-    Die Mannigfaltigkeiten $\grres$ und $\mathrm U^1$ besitzen beide eine
-    geometrische Blocksummenoperation!
-    \begin{block}<2->{Blocksumme}
-        \vspace{-1em}
-        \begin{align*}
-            \boxplus\colon \grres \times \grres &\to \grres \\\boxplus\colon
-            \mathrm U^1 \times \mathrm
-            U^1 &\to \mathrm U^1,
-        \end{align*}
-        korrespondieren zur direkten Summe von Untervektorräumen bzw. Blocksumme
-        von Matrizen.
-    \end{block}
-    \only<3->{Diese Operationen
-    \begin{itemize}
-        \item sind kompatibel mit dem Chern charakter.
-        \item induzieren die Addition in $K$-Theorie.
-\end{itemize}}
-\end{frame}
-
 \begin{frame}{Äquivariante Differenzielle $K$-Theorie}
-    \begin{block}{Definition/Satz: Kompakter Fall (Sch.)}
+    \begin{block}{Definition/Theorem}
         Die Gruppen
         \begin{align*}
-            \hat K_G^0(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M, \grres)/\sim\\
+            \hat K_G^0(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M,
+            \grres)\color<3->{red}{\times
+            \Omega^1_{\mathrm{delok}}(M)} \color{black}{/\sim}\\
             \hat K_G^{1}(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M, \mathrm
-            U^1)/\sim,
+            U^1)\color<3->{red}{\times\Omega^0_{\mathrm{delok}}(M)}
+            \color{black}{/ \sim},
         \end{align*}
-        definieren eine differenzielle Erweiterung. Hierbei ist $f_1 \sim f_0$, 
+        definieren eine differenzielle Erweiterung. \onslide<2->{Hierbei ist
+            $(f_1,\omega_1) \sim (f_0,\omega_0)$, 
         falls es eine glatte $G$-Homotopie $f_t$ von $f_0$ zu $f_1$ gibt, sodass
         \begin{align*}
-            \CS_G(f_t) = \bigoplus_g \int \Ch(f_t) 
-        \end{align*}
-        eine \emph{exakte} delokalisierte Differenzialform ist.
+            \CS_G(f_t) = \bigoplus_g \int_I \Ch(f_t) = \omega_1 - \omega_0 +
+            \mathrm{exakt} 
+        \end{align*}}
     \end{block}
 \end{frame}
+\begin{frame}
+    \begin{block}{Vermutung (Äquivariantes Venice-Lemma)}
+        Sei
+        \begin{align*}
+            \omega\in \Omega^0_{\mathrm{delok}}(M) \qquad \mathrm{oder} \qquad
+            \omega\in \Omega^1_{\mathrm{delok}}(M)
+        \end{align*}
+        eine delokalisierte Differenzialform. Dann ist $\omega$ bis auf exakte
+        Formen die Chern--Simons Form einer $G$-Homotopie 
+        \begin{align*}
+            f\colon I\times M \to
+            \mathrm{Gr}_{\mathrm{res}}\quad \mathrm{oder}\quad f\colon I\times M
+            \to\mathrm U^1,
+        \end{align*}
+        wobei $f_0$ die konstante Abbildung auf den Basispunkt ist.
+    \end{block}
+    Wenn das äquivariante Venice-Lemma wahr ist, so kann man stets auf Zykel
+    $(f,\omega)$ mit $\omega=0$ reduzieren. Somit ist in diesem Fall jede Klasse
+    in $\hat K_G$ durch eine Abbildung $f$ charakterisiert.
+\end{frame}
 \begin{frame}{Zykelabbildungen (gerader Fall)}
-    Ein Zykel für $K_G$-Theorie auf $M$ ist ein $G$-Vektorbündel $E\to M$. Es
+    Ein Zykel für $K_G^0(M)$ ist ein $G$-Vektorbündel $E\to M$. Es
     gibt eine natürliche Transformation
     \begin{align*}
         \mathrm{cycl}\colon \mathrm{Vect}_G\to K_G^0,
@@ -495,8 +509,8 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \onslide<2->{Ein \emph{geometrischer Zykel} ist ein Paar
     $(E,\nabla)$ bestehend aus 
     \begin{itemize}
-        \item Einem $G$-Vektorbündel $E\to M$.
-        \item Einem invarianten Zusammenhang $\nabla$ auf $E$.
+        \item einem $G$-Vektorbündel $E\to M$.
+        \item einem invarianten Zusammenhang $\nabla$ auf $E$.
 \end{itemize}}
 \end{frame}
 \begin{frame}{Zykelabbildungen (gerader Fall)}
@@ -507,34 +521,25 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \end{align*}
     sodass folgende Eigenschaften erfüllt sind:
     \begin{itemize}
-        \item<2-> Die Verknüpfung $R\circ \widehat{\mathrm{cycl}} =
+        \item<2-> die Verknüpfung $R\circ \widehat{\mathrm{cycl}} =
             \mathrm{Ch}_G$.
-        \item<2-> Die Verknüpfung $I\circ \widehat{\mathrm{cycl}} =
+        \item<2-> die Verknüpfung $I\circ \widehat{\mathrm{cycl}} =
             \mathrm{cycl}$.
     \end{itemize}
     \onslide<2->{Im ungeraden Fall gibt es (über den Suspensionsisomorphismus)
     eine ungerade topologische Zykelabbildung.}
 \end{frame}
 \begin{frame}
-    \begin{block}{Satz (Sch.)}
-        Die oben definierte differenzielle Erweiterung ist die eindeutige
-        Erweiterung, die sowohl eine gerade als auch eine ungerade
-        Zykelabbildung zulässt. 
+    Zykelabbildungen sind nützlich, um Klassen in $\hat K_G$ explizit zu
+    beschreiben!
+    \begin{block}{Theorem (Existenz von Zykelabbildungen)}
+            Die oben definierte differenzielle Erweiterung $\hat K_G^*$ besitzt
+            sowohl eine gerade als auch eine ungerade geometrische Zykelabbildung.
     \end{block}
-\end{frame}
-\begin{frame}{Nicht kompakter Fall}
-    Wenn das äquivariante Venice-Lemma wahr ist, so gilt das kompakte Resultat
-    auch im allgemeinen Fall.
-    \begin{block}{Vermutung (Äquivariantes Venice-Lemma)}
-        Sei
-        \begin{align*}
-            \omega\in \Omega^0_{\mathrm{delok}}(M) \qquad \mathrm{oder} \qquad
-            \omega\in \Omega^1_{\mathrm{delok}}(M)
-        \end{align*}
-        eine delokalisierte Differenzialform. Dann ist $\omega$ bis auf exakte
-        Formen die Chern--Simons Form einer $G$-Homotopie $f\colon I\times M \to
-        \mathrm{Gr}_{\mathrm{res}}$ oder $f\colon I\times M \to
-        \mathrm U^1$.
+    \begin{block}{Theorem (Äquivariante Eindeutigkeit)}
+        Bis auf Isomorphie ist $\hat K_G^*$ die eindeutige differenzielle
+        Erweiterung, die sowohl eine gerade, als auch eine ungerade
+        Zykelabbildung zulässt. 
     \end{block}
 \end{frame}
 \end{document}
