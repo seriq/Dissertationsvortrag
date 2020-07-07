@@ -227,28 +227,28 @@
 %\backupend 
 \setstcolor{red}
 
-\begin{frame}\frametitle{Was ist Differenzielle $K$-Theorie?}
-    Als Geometer studieren wir glatte Mannigfaltigkeiten. Häufig nutzen wir
-    dabei Werkzeuge der Topologie.
-    \begin{minipage}{0.5\linewidth}
-        \vspace{1em}
-        \begin{itemize}
-            \item (Ko-)Homologietheorien
-            \item Homotopiegruppen
-            \item \dots
-        \end{itemize}
-    \end{minipage}
-    \begin{minipage}{0.4\linewidth}
-        \vspace{1.5em}
-        \includegraphics[scale=0.3]{512px-Torus}	
-    \end{minipage}
-    \vspace{1em} \vspace{1em}
-    \hil{Aber:} Glatte Struktur wird von diesen Werkzeugen ignoriert!
-\end{frame}
+%\begin{frame}\frametitle{Was ist Differenzielle $K$-Theorie?}
+%    Als Geometer studieren wir glatte Mannigfaltigkeiten. Häufig nutzen wir
+%    dabei Werkzeuge der Topologie.
+%    \begin{minipage}{0.5\linewidth}
+%        \vspace{1em}
+%        \begin{itemize}
+%            \item (Ko-)Homologietheorien
+%            \item Homotopiegruppen
+%            \item \dots
+%        \end{itemize}
+%    \end{minipage}
+%    \begin{minipage}{0.4\linewidth}
+%        \vspace{1.5em}
+%        \includegraphics[scale=0.3]{512px-Torus}	
+%    \end{minipage}
+%    \vspace{1em} \vspace{1em}
+%    \hil{Aber:} Glatte Struktur wird von diesen Werkzeugen ignoriert!
+%\end{frame}
 \begin{frame}\frametitle{Was ist Differenzielle $K$-Theorie?}
     \begin{block}{\onslide<2->{\textcolor{red}{Differenzielle}}
         Kohomologietheorien}
-        Sind Familien von Funktoren Mfd $\rightarrow$ Grp mit Eigenschaften
+        Sind Familien von Funktoren Mfd $\rightarrow$ AbGrp mit Eigenschaften
        \begin{itemize}
            \item Mayer-Vietoris Sequenz
            \item $\coprod$ wird zu $\prod$
@@ -296,8 +296,8 @@ Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
     $G$-Vektorbündel!
     \vspace{1em}
     \begin{block}{Frage}
-        Kann man auch eine äquivariante Version von
-        \emph{differenzieller} K-Theorie definieren?
+        Kann man die Axiome anpassen, um eine äquivariante Version der 
+        \emph{differenziellen} K-Theorie definieren?
     \end{block}
 \end{frame}
 
@@ -362,7 +362,7 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
         wobei $\mathscr{F}_i\subset \mathrm{Fred}(\mathcal{H}\otimes L^2(G))$
         geeignete Unterräume in der Norm Topologie mit Konjugationswirkung.
     \end{exampleblock}
-    \onslide<2->{\textcolor{blue}{Idee:} Die universellen Räume $\mathscr{F}_i$
+    \onslide{\textcolor{blue}{Idee:} Die universellen Räume $\mathscr{F}_i$
         enthalten jeweils eine \emph{universelle} $K$-Theorie Klasse, welche wir
     entlang Abbildungen zurückziehen. (``Indexbündel'')}
 \end{frame}
@@ -431,17 +431,7 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
         \item Die Maurer--Cartan Form $\omega\in \Omega^1(\mathrm U^1;
             L^1)$.
     \end{itemize}
-    Diese Formen sind kompatibel mit ihren endlich dimensionalen Versionen!
-    \begin{exampleblock}{}
-        \vspace{-1em}
-        \begin{align*}
-            \mathrm{Gr}_{k}(\CC^{2N}) &\hookrightarrow \grres \\
-            \mathrm{U}(N) &\hookrightarrow \mathrm U^1
-        \end{align*}
-    \end{exampleblock}
-\end{frame}
-\begin{frame}{Der Äquivariante Chern Charakter}
-    \begin{block}{Theorem}
+    \begin{block}<2->{Theorem}
         Die folgenden Differenzialformen sind de Rham Repräsentanten des
         universellen delokalisierten Chern Charakters:
         \begin{align*}
@@ -450,11 +440,8 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
             \ch_{\mathrm{odd}} &= \bigoplus_{g\in G} \sum_{k\geq 1}
             \left(\frac{i}{2\pi}\right)^{k}
             \frac{(-1)^{k-1}(k-1)!}{(2k-1)!}\tr \left(g\,
-            (\omega_g)^{2k-1}\right),
+            (\omega_g)^{2k-1}\right)
         \end{align*}
-        wobei $R_g$ und $\omega_g$ die Einschränkungen der Differenzialformen
-        auf die Fixpunkt Untermannigfaltigkeiten $(\grres)^g$ und $(\mathrm
-        U^1)^g$ sind.
     \end{block}
 \end{frame}
 
@@ -482,19 +469,18 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \begin{block}{Vermutung (Äquivariantes Venice-Lemma)}
         Sei
         \begin{align*}
-            \omega\in \Omega^0_{\mathrm{delok}}(M) \qquad \mathrm{oder} \qquad
-            \omega\in \Omega^1_{\mathrm{delok}}(M)
+            \dd\omega\in \Omega^0_{\mathrm{delok}}(M) \qquad \mathrm{oder} \qquad
+            \dd\omega\in \Omega^1_{\mathrm{delok}}(M)
         \end{align*}
-        eine delokalisierte Differenzialform. Dann ist $\omega$ bis auf exakte
-        Formen die Chern--Simons Form einer $G$-Homotopie 
+        eine exakte delokalisierte Differenzialform. Dann ist $\dd \omega$ die
+        Chern Form $f^*\ch$ einer nullhomotopen $G$-Abbildung
         \begin{align*}
-            f\colon I\times M \to
-            \mathrm{Gr}_{\mathrm{res}}\quad \mathrm{oder}\quad f\colon I\times M
-            \to\mathrm U^1,
+            f\colon M \to
+            \mathrm{Gr}_{\mathrm{res}}\quad \mathrm{oder}\quad f\colon M
+            \to\mathrm U^1.
         \end{align*}
-        wobei $f_0$ die konstante Abbildung auf den Basispunkt ist.
     \end{block}
-    Wenn das äquivariante Venice-Lemma wahr ist, so kann man stets auf Zykel
+    Wenn das äquivariante Venice-Lemma gilt, so kann man stets auf Zykel
     $(f,\omega)$ mit $\omega=0$ reduzieren. Somit ist in diesem Fall jede Klasse
     in $\hat K_G$ durch eine Abbildung $f$ charakterisiert.
 \end{frame}
@@ -506,28 +492,13 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \end{align*}
     die wir die \emph{topologische Zykelabbildung} nennen.
 
-    \onslide<2->{Ein \emph{geometrischer Zykel} ist ein Paar
-    $(E,\nabla)$ bestehend aus 
-    \begin{itemize}
-        \item einem $G$-Vektorbündel $E\to M$.
-        \item einem invarianten Zusammenhang $\nabla$ auf $E$.
-\end{itemize}}
-\end{frame}
-\begin{frame}{Zykelabbildungen (gerader Fall)}
-    Ein geometrischer Lift der topologischen Zykelabbildung ist eine natürliche
+    Ein \hil{geometrischer Lift} der topologischen Zykelabbildung ist eine natürliche
     Transformation
     \begin{align*}
         \widehat{\mathrm{cycl}}\colon \mathrm{Vect}^{\nabla}_G\to \hat K_G^0,
     \end{align*}
-    sodass folgende Eigenschaften erfüllt sind:
-    \begin{itemize}
-        \item<2-> die Verknüpfung $R\circ \widehat{\mathrm{cycl}} =
-            \mathrm{Ch}_G$.
-        \item<2-> die Verknüpfung $I\circ \widehat{\mathrm{cycl}} =
-            \mathrm{cycl}$.
-    \end{itemize}
-    \onslide<2->{Im ungeraden Fall gibt es (über den Suspensionsisomorphismus)
-    eine ungerade topologische Zykelabbildung.}
+    mit $R\circ \widehat{\mathrm{cycl}} = \mathrm{Ch}_G$ und $I\circ
+    \widehat{\mathrm{cycl}} = \mathrm{cycl}$.
 \end{frame}
 \begin{frame}
     Zykelabbildungen sind nützlich, um Klassen in $\hat K_G$ explizit zu
@@ -541,5 +512,15 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
         Erweiterung, die sowohl eine gerade, als auch eine ungerade
         Zykelabbildung zulässt. 
     \end{block}
+\end{frame}
+\begin{frame}\frametitle{Offene Fragen}
+    \begin{itemize}
+        \item Kompakte Lie Gruppen / diskrete Gruppen?
+        \item Explizite Cup Produkt Struktur auf $\hat K_G$?
+        \item Explizite Pushforward / Indexabbildungen?
+        \item Erweiterung auf unendlich-dimensionale Mannigfaltigkeiten?
+        \item Mehr explizite Berechnungen!
+    \end{itemize}
+    \vspace{2em}\centering\hil{Vielen Dank für Eure Aufmerksamkeit!}
 \end{frame}
 \end{document}
