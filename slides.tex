@@ -248,7 +248,7 @@
 \begin{frame}\frametitle{Was ist Differenzielle $K$-Theorie?}
     \begin{block}<2->{\onslide<4->{\textcolor{red}{Differenzielle}}
         Kohomologietheorien}
-        Sind Familien von Funktoren Diff $\rightarrow$ AbGrp mit Eigenschaften
+        Sind Familien von Funktoren Diff $\rightarrow$ Ab mit Eigenschaften
        \begin{itemize}
            \item Mayer-Vietoris Sequenz
            \item $\coprod$ wird zu $\prod$
@@ -273,7 +273,7 @@
 \end{frame}
 \begin{frame}\frametitle{Klassische Definition}
     Eine differenzielle Erweiterung ist eine Familie von Funktoren $\hat
-    K^*\colon$ Diff $\rightarrow$ AbGrp zusammen mit Transformationen $R, I$ und
+    K^*\colon$ Diff $\rightarrow$ Ab zusammen mit Transformationen $R, I$ und
     $a$:
 \begin{equation}\begin{tikzcd}[ampersand replacement=\&]
         \textcolor{red}{\hat K^*(M)} \arrow[d,
@@ -321,17 +321,15 @@ den Chern Charakter!}
 %\end{block}
 \end{frame}
 \begin{frame}{Der Delokalisierte Chern Charakter}
-    Nach Baum und Connes gibt es eine Möglichkeit, die (rationale)
-    Isomorphieeigenschaft wieder herzustellen.
-    \begin{block}{Delokalisierte Kohomologie}
-        \vspace{-1em}
+    \begin{block}{Delokalisierte Kohomologie [Baum, Connes]}
+        Definiere die Gruppen
         \begin{align*}
             H^0_\mathrm{delok}(M) &= \left( \bigoplus_{g\in G} \prod_{k\in\N}
             H^{2k}(M^g;\CC)\right)^G\quad\mathrm{und}\\
             H^1_\mathrm{delok}(M) &= \left( \bigoplus_{g\in G} \prod_{k\in\N}
             H^{2k+1}(M^g;\CC)\right)^G.
         \end{align*}
-        und es gibt einen Chern Charakter Isomorphismus
+        Dann gibt es gibt einen Chern Charakter Isomorphismus
         \begin{align*}
             K_G^*(M)\otimes \CC
             \stackrel{\mathrm{ch}_{\mathrm{delok}}}{\longrightarrow}
@@ -356,7 +354,7 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
 \end{frame}
 
 \begin{frame}{$K$-Theorie über ein Spektrum}
-    \begin{exampleblock}{Theorem (Atiyah)}{}
+    \begin{exampleblock}{Theorem [Atiyah]}{}
         \vspace{-1em}
         \begin{align*}
             K_G^0(M) &\cong [M, \mathscr{F}_0]_G \\
@@ -454,17 +452,17 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
         \begin{align*}
             \hat K_G^0(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M,
             \grres)\color<3->{red}{\times
-            \Omega^1_{\mathrm{delok}}(M)} \color{black}{/\sim}\\
+            \Omega^1_{\mathrm{delok}}(M)} \color{black}{/\sim} \;\;\mathrm{und}\\
             \hat K_G^{1}(M) &= \textrm{Map}^G_{\mathrm{Smooth}}(M, \mathrm
             U^1)\color<3->{red}{\times\Omega^0_{\mathrm{delok}}(M)}
-            \color{black}{/ \sim},
+            \color{black}{/ \sim}
         \end{align*}
         definieren eine differenzielle Erweiterung. \onslide<2->{Hierbei ist
             $(f_1,\omega_1) \sim (f_0,\omega_0)$, 
         falls es eine glatte $G$-Homotopie $f_t$ von $f_0$ zu $f_1$ gibt, sodass
         \begin{align*}
             \CS_G(f_t) = \bigoplus_g \int_I \Ch(f_t) = \omega_1 - \omega_0 +
-            \mathrm{exakt} 
+            \mathrm{exakt}.
         \end{align*}}
     \end{block}
 \end{frame}
