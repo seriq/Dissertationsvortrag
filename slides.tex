@@ -248,7 +248,7 @@
 \begin{frame}\frametitle{Was ist Differenzielle $K$-Theorie?}
     \begin{block}<2->{\onslide<4->{\textcolor{red}{Differenzielle}}
         Kohomologietheorien}
-        Sind Familien von Funktoren Mfd $\rightarrow$ AbGrp mit Eigenschaften
+        Sind Familien von Funktoren Diff $\rightarrow$ AbGrp mit Eigenschaften
        \begin{itemize}
            \item Mayer-Vietoris Sequenz
            \item $\coprod$ wird zu $\prod$
@@ -272,7 +272,9 @@
     \end{exampleblock}
 \end{frame}
 \begin{frame}\frametitle{Klassische Definition}
-Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
+    Eine differenzielle Erweiterung ist eine Familie von Funktoren $\hat
+    K^*\colon$ Diff $\rightarrow$ AbGrp zusammen mit Transformationen $R, I$ und
+    $a$:
 \begin{equation}\begin{tikzcd}[ampersand replacement=\&]
         \textcolor{red}{\hat K^*(M)} \arrow[d,
         "R", red]\arrow[r, "I", red] \& K^*(M)\arrow[d, "\mathrm{ch}"] \\ 
