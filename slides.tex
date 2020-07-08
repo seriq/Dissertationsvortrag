@@ -274,13 +274,14 @@
 \begin{frame}\frametitle{Klassische Definition}
     Eine differenzielle Erweiterung ist eine Familie von Funktoren $\hat
     K^*\colon$ Diff $\rightarrow$ Ab zusammen mit Transformationen $R, I$ und
-    $a$:
+    $a$ sodass
 \begin{equation}\begin{tikzcd}[ampersand replacement=\&]
         \textcolor{red}{\hat K^*(M)} \arrow[d,
         "R", red]\arrow[r, "I", red] \& K^*(M)\arrow[d, "\mathrm{ch}"] \\ 
         \Omega^*_{\dd=0}(M) \arrow[r, "\mathrm{Rham}"]\& H^*(M),
 \end{tikzcd}\nonumber
-\end{equation} \vspace{1em} sowie eine exakte Sequenz\vspace{-2em}
+\end{equation} \vspace{1em}kommutiert und die folgende Sequenz exakt
+ist:\vspace{-2em}
 \begin{equation}\begin{tikzcd}[ampersand replacement=\&]
         K^{*-1}(M)\arrow[r, "\mathrm{ch}"]\&[-10pt]\Omega^{*-1}(M) /
         \mathrm{im}(\dd)\ar[dr, "\dd"]\arrow[r, "a", red] \&[-10pt]
@@ -347,10 +348,8 @@ den Chern Charakter!}
 \end{tikzcd}\nonumber
 \end{equation}
 
-\only<2->{Eine solche Theorie $\hat K_G^*$ würde wie im nicht äquivarianten
-Fall den $K_G$-Theorie Funktor differenzialgeometrisch verfeinern!
-
-Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
+\only<2->{\hil{Frage:} Wie kann man eine solche Erweiterung konkret
+konstruieren?}
 \end{frame}
 
 \begin{frame}{$K$-Theorie über ein Spektrum}
@@ -376,13 +375,13 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \end{itemize}
     \onslide<2->{Wenn wir einen universellen Repräsentanten für den Chern
     Charakter finden, können wir also möglicherweise differenzielle $K$-Theorie
-    klassifizieren!
+    klassifizieren.
     
     Auf Atiyahs Räumen von Fredholm Operatoren sind bis heute allerdings keine
     konkreten geometrischen Repräsentanten bekannt.
 
-    $\textcolor{blue}{\Rightarrow}$ Wir brauchen bessere Modelle von den
-    klassifizierenden Räumen!}
+    $\textcolor{blue}{\Rightarrow}$ Wir brauchen also besser geeignete Modelle
+    von den klassifizierenden Räumen.}
     
 \end{frame}
 \begin{frame}
@@ -491,24 +490,24 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \begin{align*}
         \mathrm{cycl}\colon \mathrm{Vect}_G\to K_G^0,
     \end{align*}
-    die wir die \emph{topologische Zykelabbildung} nennen.
+    die wir die \hil{topologische Zykelabbildung} nennen.
 
-    Ein \hil{geometrischer Lift} der topologischen Zykelabbildung ist eine natürliche
-    Transformation
+    Ein \hil{geometrischer Lift} der topologischen Zykelabbildung ist eine
+    natürliche Transformation
     \begin{align*}
-        \widehat{\mathrm{cycl}}\colon \mathrm{Vect}^{\nabla}_G\to \hat K_G^0,
+        \widehat{\mathrm{cycl}}\colon \mathrm{Vect}^{\nabla}_G\to \hat K_G^0
     \end{align*}
     mit $R\circ \widehat{\mathrm{cycl}} = \mathrm{Ch}_G$ und $I\circ
     \widehat{\mathrm{cycl}} = \mathrm{cycl}$.
 \end{frame}
 \begin{frame}
     Zykelabbildungen sind nützlich, um Klassen in $\hat K_G$ explizit zu
-    beschreiben!
-    \begin{block}{Theorem (Existenz von Zykelabbildungen)}
+    beschreiben.
+    \begin{block}<2->{Theorem (Existenz von Zykelabbildungen)}
             Die oben definierte differenzielle Erweiterung $\hat K_G^*$ besitzt
             sowohl eine gerade als auch eine ungerade geometrische Zykelabbildung.
     \end{block}
-    \begin{block}{Theorem (Äquivariante Eindeutigkeit)}
+    \begin{block}<3->{Theorem (Äquivariante Eindeutigkeit)}
         Bis auf Isomorphie ist $\hat K_G^*$ die eindeutige differenzielle
         Erweiterung, die sowohl eine gerade, als auch eine ungerade
         Zykelabbildung zulässt. 
