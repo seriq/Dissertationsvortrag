@@ -305,6 +305,7 @@ ist:\vspace{-2em}
 %\end{frame}
 
 \begin{frame}\frametitle{Äquivariante Version, 1. Versuch}
+    Sei $G$ eine endliche Gruppe und $M$ eine $G$-Mannigfaltigkeit.
 \onslide<2->{\begin{equation}\begin{tikzcd}[ampersand replacement=\&]
         \textcolor{red}{\hat K_G^*(M)} \arrow[d,
         "R", red]\arrow[r, "I", red] \& K_G^*(M)\arrow[d, "\mathrm{ch}_G"] \\ 
@@ -314,8 +315,8 @@ ist:\vspace{-2em}
 wobei $\ch_G(E) = \ch(EG\times_G E \to EG\times_G M)$.}
 \vspace{0.5em} 
 
-\onslide<3->{\hil{Aber:} Borel äquivariante Kohomologie ist kein gutes Ziel für
-den Chern-Charakter!}
+\onslide<3->{\hil{Aber:} Äquivariante Kohomologie $H_G^*(M) = H^*(EG\times_G M)$
+    mit der Borel Konstruktion ist kein gutes Ziel für den Chern-Charakter!}
 %\begin{block}<2->{Erinnerung:}
 %    Verkleben von $K$-Theorie Klassen mit Differenzialformen über den Chern
 %    Charakter. 
@@ -412,16 +413,17 @@ konstruieren?}
         Für jede glatte $G$-Mannigfaltigkeit ist 
         \begin{align*}
             ([M, \mathrm{Gr}_{\mathrm{res}}]_G,\boxplus) &\cong K_G^0(M) \\
-            ([M, \mathrm{U}^1]_G,\boxplus) &\cong K_G^1(M) \\
+            ([M, \mathrm{U}^1]_G,\boxplus) &\cong K_G^1(M).
         \end{align*}
     \end{block}
-    wobei die Blocksummenoperation
+    Die Blocksummenoperation
     \begin{align*}
         \boxplus\colon \grres \times \grres &\to \grres \\\boxplus\colon
         \mathrm U^1 \times \mathrm
         U^1 &\to \mathrm U^1
     \end{align*}
-    der Summe von Untervektorräumen bzw. Blocksumme von Matrizen entspricht.
+    entspricht dabei der Summe von Untervektorräumen bzw. Blocksumme von
+    Matrizen.
 \end{frame}
 \begin{frame}
     Auf $\grres$ und $\mathrm U^1$ existieren (per Konstruktion!) spezielle
