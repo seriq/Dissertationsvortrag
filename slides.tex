@@ -304,10 +304,11 @@ Für jede glatte Mannigfaltigkeit $M$ fordern wir ein kommutatives Diagram
 \begin{frame}\frametitle{Äquivariante Version, 1. Versuch}
 \begin{equation}\begin{tikzcd}[ampersand replacement=\&]
         \textcolor{red}{\hat K_G^*(M)} \arrow[d,
-        "R", red]\arrow[r, "I", red] \& K_G^*(M)\arrow[d, "\mathrm{ch}"] \\ 
+        "R", red]\arrow[r, "I", red] \& K_G^*(M)\arrow[d, "\mathrm{ch}_G"] \\ 
         (\Omega^*_{\dd=0}(M))^G \arrow[r, "\mathrm{Rham}"]\& H_G^*(M),
 \end{tikzcd}\nonumber
 \end{equation}
+wobei $\ch_G(E) = \ch(EG\times_G E)$.
 \vspace{0.5em} 
 
 \onslide<2->{\hil{Aber:} Borel äquivariante Kohomologie ist kein gutes Ziel für
@@ -363,8 +364,8 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
         geeignete Unterräume in der Norm Topologie mit Konjugationswirkung.
     \end{exampleblock}
     \onslide{\textcolor{blue}{Idee:} Die universellen Räume $\mathscr{F}_i$
-        enthalten jeweils eine \emph{universelle} $K$-Theorie Klasse, welche wir
-    entlang Abbildungen zurückziehen. (``Indexbündel'')}
+        besitzen jeweils eine \emph{universelle} $K$-Theorie Klasse, welche wir
+    entlang von Abbildungen zurückziehen. (``Indexbündel'')}
 \end{frame}
 \begin{frame}
     Eine differenzielle $K$-Theorie Klasse besteht aus
@@ -482,7 +483,7 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
     \end{block}
     Wenn das äquivariante Venice-Lemma gilt, so kann man stets auf Zykel
     $(f,\omega)$ mit $\omega=0$ reduzieren. Somit ist in diesem Fall jede Klasse
-    in $\hat K_G$ durch eine Abbildung $f$ charakterisiert.
+    in $\hat K_G$ allein durch eine Abbildung $f$ charakterisiert.
 \end{frame}
 \begin{frame}{Zykelabbildungen (gerader Fall)}
     Ein Zykel für $K_G^0(M)$ ist ein $G$-Vektorbündel $E\to M$. Es
@@ -521,6 +522,6 @@ Wie konstruiert man einen geeigneten Funktor $\hat K_G^*$?}
         \item Erweiterung auf unendlich-dimensionale Mannigfaltigkeiten?
         \item Mehr explizite Berechnungen!
     \end{itemize}
-    \vspace{2em}\centering\hil{Vielen Dank für Eure Aufmerksamkeit!}
+    \vspace{2em}\centering\hil{Vielen Dank für eure Aufmerksamkeit!}
 \end{frame}
 \end{document}
