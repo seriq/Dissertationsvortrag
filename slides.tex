@@ -289,36 +289,36 @@
 \end{tikzcd}\nonumber
 \end{equation}
 \end{frame}
-\begin{frame}{Äquivariantes Setting}
-
-    Sei $G$ eine endliche Gruppe und $M$ eine $G$-Mannigfaltigkeit. Dann gibt es
-    nach Atiyah und Segal eine äquivariante Version von $K$-Theorie.
-    
-    \textcolor{blue}{Motto:} Ersetze Vektorbündel durch äquivariante
-    $G$-Vektorbündel!
-    \vspace{1em}
-    \begin{block}{Frage}
-        Kann man die Axiome anpassen, um eine äquivariante Version der 
-        \emph{differenziellen} K-Theorie definieren?
-    \end{block}
-\end{frame}
+%\begin{frame}{Äquivariantes Setting}
+%
+%    Sei $G$ eine endliche Gruppe und $M$ eine $G$-Mannigfaltigkeit. Dann gibt es
+%    nach Atiyah und Segal eine äquivariante Version von $K$-Theorie.
+%    
+%    \textcolor{blue}{Motto:} Ersetze Vektorbündel durch äquivariante
+%    $G$-Vektorbündel!
+%    \vspace{1em}
+%    \begin{block}{Frage}
+%        Kann man die Axiome anpassen, um eine äquivariante Version der 
+%        \emph{differenziellen} K-Theorie definieren?
+%    \end{block}
+%\end{frame}
 
 \begin{frame}\frametitle{Äquivariante Version, 1. Versuch}
-\begin{equation}\begin{tikzcd}[ampersand replacement=\&]
+\onslide<2->{\begin{equation}\begin{tikzcd}[ampersand replacement=\&]
         \textcolor{red}{\hat K_G^*(M)} \arrow[d,
         "R", red]\arrow[r, "I", red] \& K_G^*(M)\arrow[d, "\mathrm{ch}_G"] \\ 
         (\Omega^*_{\dd=0}(M))^G \arrow[r, "\mathrm{Rham}"]\& H_G^*(M),
 \end{tikzcd}\nonumber
 \end{equation}
-wobei $\ch_G(E) = \ch(EG\times_G E \to EG\times_G M)$.
+wobei $\ch_G(E) = \ch(EG\times_G E \to EG\times_G M)$.}
 \vspace{0.5em} 
 
-\onslide<2->{\hil{Aber:} Borel äquivariante Kohomologie ist kein gutes Ziel für
+\onslide<3->{\hil{Aber:} Borel äquivariante Kohomologie ist kein gutes Ziel für
 den Chern Charakter!}
-\begin{block}<2->{Erinnerung:}
-    Verkleben von $K$-Theorie Klassen mit Differenzialformen über den Chern
-    Charakter. 
-\end{block}
+%\begin{block}<2->{Erinnerung:}
+%    Verkleben von $K$-Theorie Klassen mit Differenzialformen über den Chern
+%    Charakter. 
+%\end{block}
 \end{frame}
 \begin{frame}{Der Delokalisierte Chern Charakter}
     Nach Baum und Connes gibt es eine Möglichkeit, die (rationale)
